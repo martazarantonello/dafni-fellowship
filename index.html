@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!--
+  DRAFT CONTENT TO CONFIRM BEFORE PUBLISHING. Everything shown highlighted on the page
+  with the class "tbc" is a placeholder. Search this file for  class="tbc"  to find them:
+    - workshop date, venue and registration route
+    - month of the "models on DAFNI" and "workshop" milestones
+    - partner logos (the three dashed .logo-slot boxes)
+    - the practical guide / final report titles and dates
+  The project title and the workshop aims are drafts written from the code repository.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probabilistic Risk of Infrastructure Networks Under Sequential Hazards | DAFNI Fellowship</title>
+<meta name="description" content="Updates from Dr Ji-Eun Byun's DAFNI Fellowship on probabilistic risk modelling of infrastructure networks under sequences of natural hazards, including the DAFNI models and the stakeholder workshop.">
+<meta name="theme-color" content="#003E74">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1B2430;
+  --ink-soft:#4A5566;
+  --paper:#FBFAF7;
+  --paper-2:#EEF2F6;
+  --blue:#003E74;
+  --blue-2:#0A6FB7;
+  --line:#D3DBE4;
+  --amber:#D68A1C;
+  --max:1120px;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Source Sans 3",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);font-size:1.0625rem;line-height:1.55;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4.5vw,3.25rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3vw,2.25rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+a{color:var(--blue-2)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--blue);color:#fff;padding:.5rem 1rem}
+.skip:focus{left:1rem;top:1rem;z-index:100}
+
+/* Placeholders to confirm before publishing */
+.tbc{background:#FFF1C9;border-radius:3px;padding:0 .25em;font-style:normal}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
+.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:1.15rem}
+.brand span{font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)}
+.links{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0}
+.links a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
+.links a:hover{color:var(--blue-2)}
+.menu{display:none;background:none;border:1px solid var(--line);padding:.4rem .7rem;font:inherit;cursor:pointer;border-radius:4px}
+@media (max-width:760px){
+  .menu{display:block}
+  .links{display:none;position:absolute;left:0;right:0;top:64px;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+  .links li a{display:block;padding:.85rem 1.25rem;border-top:1px solid var(--line)}
+}
+
+/* Hero */
+.hero{padding:4rem 0 3rem;display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:center}
+.kicker{color:var(--blue-2);font-weight:600;margin-bottom:.75rem}
+.hero .lede{font-size:1.2rem;color:var(--ink-soft);max-width:34em}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:4px;text-decoration:none;font-weight:600;border:1.5px solid var(--blue)}
+.btn.solid{background:var(--blue);color:#fff}
+.btn.ghost{color:var(--blue)}
+.btn + .btn{margin-left:.6rem}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.facts dt{font-size:.85rem;color:var(--ink-soft)}
+.facts dd{margin:0;font-weight:600}
+.hero figure{margin:0;max-width:400px;justify-self:end}
+@media (max-width:860px){.hero figure{max-width:420px;justify-self:start}}
+.hero figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.5rem}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:2.5rem}.facts{grid-template-columns:1fr 1fr}}
+
+/* Partner strip */
+.partners{display:flex;flex-wrap:wrap;gap:2.5rem;align-items:center;justify-content:center;padding:1.5rem 0 2.5rem;border-bottom:1px solid var(--line)}
+.partners img{height:42px;width:auto;filter:grayscale(1);opacity:.75}
+.partners img:hover{filter:none;opacity:1}
+.logo-slot{display:inline-flex;align-items:center;justify-content:center;height:42px;min-width:150px;padding:0 1rem;border:1.5px dashed var(--line);border-radius:4px;color:var(--ink-soft);font-size:.85rem;text-decoration:none}
+
+/* Sections */
+section{padding:4.5rem 0}
+section + section{border-top:1px solid var(--line)}
+.alt{background:var(--paper-2)}
+.section-head{max-width:40em;margin-bottom:2.5rem}
+.section-head p{color:var(--ink-soft);font-size:1.1rem}
+
+.aims{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 2.5rem;counter-reset:aim}
+.aims article{padding-top:1rem;border-top:3px solid var(--blue)}
+.aims article::before{counter-increment:aim;content:counter(aim,decimal-leading-zero);font-family:var(--serif);color:var(--blue-2);font-size:1.1rem;display:block;margin-bottom:.4rem}
+@media (max-width:700px){.aims{grid-template-columns:1fr}}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 1.75rem 1.75rem}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--blue);border:2px solid var(--paper)}
+.timeline li.planned::before{background:var(--paper);border-color:var(--blue)}
+.timeline time{display:block;font-size:.9rem;color:var(--ink-soft)}
+.timeline strong{font-family:var(--serif);font-size:1.15rem;font-weight:600}
+.updated{font-size:.9rem;color:var(--ink-soft)}
+
+/* Platform */
+.platform{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem}
+.platform ul{padding-left:1.2rem}
+.platform li{margin-bottom:.6rem}
+.platform ul ul{margin-top:.4rem}
+.platform ul ul li{margin-bottom:.3rem}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{display:grid;grid-template-columns:2.2rem 1fr;gap:.75rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.steps li span{font-family:var(--serif);color:var(--blue-2);font-size:1.3rem}
+.steps li strong{display:block}
+@media (max-width:800px){.platform{grid-template-columns:1fr}}
+
+/* Workshop */
+.ws-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0 2rem}
+.ws-meta div{background:var(--paper);border:1px solid var(--line);padding:1rem 1.2rem;border-radius:4px}
+.ws-meta div small{display:block;color:var(--ink-soft);font-size:.85rem}
+.ws-meta div strong{font-family:var(--serif);font-size:1.25rem;font-weight:600;display:block;margin:.2rem 0}
+@media (max-width:760px){.ws-meta{grid-template-columns:1fr}}
+.programme{margin-top:2.5rem;border-top:1px solid var(--line)}
+.programme-title{padding:1rem 0;margin:0;font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.agenda{list-style:none;margin:0;padding:0 0 1rem}
+.agenda li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.75rem 0;border-top:1px solid var(--line)}
+.agenda time{color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.agenda strong{display:block}
+@media (max-width:560px){.agenda li{grid-template-columns:1fr;gap:.2rem}}
+
+/* Outputs */
+.outputs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.outputs article{border:1px solid var(--line);padding:1.5rem;background:var(--paper);border-radius:4px;display:flex;flex-direction:column}
+.outputs article p{flex:1}
+.outputs small{color:var(--ink-soft)}
+.tag{display:inline-block;font-size:.85rem;color:var(--amber);font-weight:600}
+@media (max-width:760px){.outputs{grid-template-columns:1fr}}
+
+/* Contact / footer */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact address{font-style:normal;line-height:1.7}
+.contact address + address{margin-top:1rem}
+@media (max-width:700px){.contact{grid-template-columns:1fr}}
+footer{background:var(--blue);color:#E3ECF4;padding:3rem 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:flex-end}
+footer a{color:#fff}
+footer p{margin:0 0 .4em;max-width:36em}
+footer small{opacity:.8}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to main content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">DAFNI Fellowship <span>2026–2027</span></a>
+    <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#platform">DAFNI models</a></li>
+      <li><a href="#workshop">Workshop</a></li>
+      <li><a href="#outputs">Outputs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="wrap hero">
+  <div>
+    <p class="kicker">DAFNI Fellow · Imperial College London</p>
+    <h1>Probabilistic Risk of Infrastructure Networks Under Sequential Hazards</h1>
+    <p class="lede">Bringing a scalable probabilistic model of how earthquakes and storms damage road networks onto DAFNI, so that the risk to the network, and the links that matter most, can be reproduced, examined and reused.</p>
+    <p><a class="btn solid" href="#workshop">Explore the workshop</a><a class="btn ghost" href="#updates">Fellowship updates</a></p>
+    <dl class="facts">
+      <div><dt>Fellow</dt><dd>Dr Ji-Eun Byun</dd></div>
+      <div><dt>Duration</dt><dd>1 April 2026 – 30 June 2027</dd></div>
+      <div><dt>Demonstrator</dt><dd>Eastern Massachusetts highway network under earthquake and windstorm sequences</dd></div>
+    </dl>
+  </div>
+  <figure>
+    <img src="assets/images/ema-network.png" alt="Map of the Eastern Massachusetts highway network used as the demonstrator: 74 nodes sized by population, 129 links, two destination nodes marked with stars, and a dashed box showing where a hazard can originate" style="width:100%;height:auto;border-radius:6px">
+    <figcaption>The Eastern Massachusetts (EMA) benchmark highway network used in the demonstrator: 74 nodes sized by population and 129 links. A hazard originates somewhere in the dashed box, and the model tracks whether the population can still reach the two destinations (stars) as links are damaged.</figcaption>
+  </figure>
+</div>
+
+<div class="wrap partners">
+  <!-- Replace each slot with:  <a href="URL"><img src="assets/images/NAME.png" alt="NAME"></a> -->
+  <a class="logo-slot tbc" href="https://www.dafni.ac.uk/">DAFNI logo</a>
+  <a class="logo-slot tbc" href="https://www.ukri.org/">UKRI logo</a>
+  <a class="logo-slot tbc" href="https://www.imperial.ac.uk/">Imperial College London logo</a>
+</div>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What the Fellowship is about</h2>
+      <p>Infrastructure is rarely hit by a single event. An earthquake is followed by aftershocks, and a storm by further gusts, and each one can damage more links. What matters to people is whether they can still reach the places they depend on. The Fellowship builds a probabilistic model of this on a real highway network, runs it for sequences of hazards, and asks the people who plan and manage infrastructure whether the results are useful.</p>
+    </div>
+    <div class="aims">
+      <article><h3>Build the model</h3><p>Put the full chain on DAFNI: the hazard sequence, the chance that each link is damaged, and whether the population can still reach key destinations afterwards.</p></article>
+      <article><h3>Find the links that matter</h3><p>Force each link to fail in turn and see how the performance of the whole network changes, then rank links by standard importance measures to show where protection or repair would help most.</p></article>
+      <article><h3>Make it reusable</h3><p>Let others choose the network, the hazard and how strict the performance requirement is, and pass the results of one model to the next so that nothing is recomputed unnecessarily.</p></article>
+      <article><h3>Test it with practitioners</h3><p>Put the models in front of infrastructure operators, public bodies and researchers at the workshop, find out what they would need to trust and use the evidence, and write that up.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="updates" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Updates and milestones</h2>
+      <p class="updated">Last updated: 9 November 2026</p>
+    </div>
+    <ol class="timeline">
+      <li><time>1 April 2026</time><strong>Fellowship begins</strong><p>Work starts on moving the probabilistic network models onto the DAFNI platform.</p></li>
+      <li class="planned"><time><span class="tbc">Month 2026 – to confirm</span></time><strong>Models published on DAFNI</strong><p>Modelling and inference models available on the platform, with documented inputs and outputs.</p></li>
+      <li class="planned"><time><span class="tbc">Date to confirm</span></time><strong>Workshop</strong><p>Half-day hands-on workshop for practitioners and researchers.</p></li>
+      <li class="planned"><time>30 June 2027</time><strong>Fellowship ends</strong><p>Final outputs, including the practical guide, released.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="platform">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The models on DAFNI</h2>
+      <p>Everything needed to rerun the analysis is packaged as models on DAFNI, so that others can check it, change the choices and use it for their own questions.</p>
+    </div>
+    <div class="platform">
+      <div>
+        <ul>
+          <li><strong>The networks:</strong> a small 11-link illustrative network for quick exploration, and the real Eastern Massachusetts highway network (74 nodes, 129 links).</li>
+          <li><strong>The hazards:</strong> an earthquake mainshock followed by up to ten aftershocks, or a windstorm with an initial peak followed by up to ten further gust peaks. In both, damage builds up over the sequence. The windstorm model is still being refined and its assumptions are documented.</li>
+          <li><strong>The performance requirement:</strong> how much of the population must still be able to reach key destinations within a given travel time, with a standard and a stricter setting.</li>
+          <li><strong>The models:</strong>
+            <ul>
+              <li><em>Modelling</em> builds the probabilistic model and works out the boundary between adequate, degraded and failed performance.</li>
+              <li><em>Inference 1</em> samples the model forward to show its baseline behaviour.</li>
+              <li><em>Inference 2</em> forces each link to fail and measures how criticality changes over time.</li>
+              <li><em>Inference 3</em> ranks links by Birnbaum importance, Risk Achievement Worth and Risk Reduction Worth.</li>
+            </ul>
+          </li>
+          <li><strong>The code:</strong> the open-source <a href="https://github.com/jieunbyun/tbnpy">tbnpy</a> toolkit for tensor-based Bayesian networks, with <a href="https://jieunbyun.github.io/tbnpy/">online documentation</a>.</li>
+        </ul>
+        <p><a href="https://www.dafni.ac.uk/who-we-are/dafni-platform/">About the DAFNI platform</a></p>
+      </div>
+      <ol class="steps">
+        <li><span>1</span><div><strong>Choose</strong>A network, a hazard and a performance requirement</div></li>
+        <li><span>2</span><div><strong>Build</strong>The probabilistic model and its performance boundaries</div></li>
+        <li><span>3</span><div><strong>Sample</strong>How the network behaves on average</div></li>
+        <li><span>4</span><div><strong>Ask “what if?”</strong>Force a link to fail and see which links matter most</div></li>
+        <li><span>5</span><div><strong>Reuse</strong>Pass results to the next model, or change the choices and run again</div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="workshop" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Probabilistic Risk Modelling for Infrastructure Resilience</h2>
+      <p class="kicker">Half-day hands-on workshop · <span class="tbc">date to confirm</span> · <span class="tbc">venue to confirm</span></p>
+      <p>The workshop will bring together infrastructure operators, public bodies, analysts and researchers to try the DAFNI models themselves: choose a hazard and a network, make particular links more or less vulnerable, and see how the risk to the whole network and the ranking of critical links change. It is aimed at people who want to get into the modelling detail and judge whether this kind of evidence could support their decisions.</p>
+    </div>
+    <div class="ws-meta">
+      <div><small>Date</small><strong class="tbc">To be confirmed</strong>Afternoon, 13:00 to 17:00</div>
+      <div><small>Location</small><strong class="tbc">To be confirmed</strong>Venue and format to be announced.</div>
+      <div><small>Format</small><strong>Talks, demonstration and hands-on</strong>Participants work with the models in a guided notebook.</div>
+    </div>
+    <p><a class="btn solid" href="mailto:j.byun@imperial.ac.uk?subject=Workshop%20expression%20of%20interest">Register your interest</a><a class="btn ghost" href="#agenda">View the proposed agenda</a></p>
+    <div style="margin-top:2.5rem;max-width:44em">
+      <h3>Workshop aims</h3>
+      <ul>
+        <li>Test whether practitioners find the models' evidence credible and usable: its assumptions, its representation of uncertainty and how results are presented.</li>
+        <li>Establish what operators and public bodies would need, in data, format and governance, before such evidence could inform a planning or operational decision, and what stands in the way.</li>
+      </ul>
+      <p>The workshop's output is the participants' reaction to the evidence, which will shape the closing report.</p>
+    </div>
+    <div id="agenda" class="programme">
+      <h3 class="programme-title">Proposed programme (afternoon)</h3>
+      <ol class="agenda">
+        <li><time>13:00–13:10</time><div><strong>Welcome</strong></div></li>
+        <li><time>13:10–14:30</time><div><strong>Perspectives on infrastructure risk</strong>Short talks on how hazards such as earthquakes and storms are modelled; how infrastructure owners assess network risk today and where current tools fall short; and how DAFNI helps researchers and industry share models and reuse each other's work.</div></li>
+        <li><time>14:30–15:00</time><div><strong>From hazard to network impact</strong>A hazard sequence run on the Eastern Massachusetts network, showing how a hazard model, a damage model and a shared platform come together to trace an event from ground shaking or gusts to damaged links and the population that can still reach key destinations.</div></li>
+        <li><time>15:00–15:20</time><div><strong>Coffee break</strong></div></li>
+        <li><time>15:20–16:20</time><div><strong>Your turn: hands-on session</strong>Work in small groups or on your own with the models: pick a hazard and a network, change how vulnerable chosen links are, run the baseline analysis, and force a link to fail to see how critical it is. Then discuss what evidence you would trust, what is missing and what would change a decision, and share your key ideas with the room.</div></li>
+        <li><time>16:20–17:00</time><div><strong>Wrap up and next steps</strong>How your input feeds into the Fellowship report, and how to stay involved.</div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="outputs">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Fellowship outputs</h2>
+      <p>The models and code are open, and the Fellowship will close with a practical guide and a report bringing together the demonstrator, stakeholder feedback and experience of using DAFNI.</p>
+    </div>
+    <div class="outputs">
+      <article><span class="tag">Open source</span><h3>tbnpy toolkit</h3><p>The Python package behind the models, with worked examples and API documentation.</p><a href="https://jieunbyun.github.io/tbnpy/">Read the documentation</a></article>
+      <article><span class="tag">Planned output</span><h3>Practical guide</h3><p><span class="tbc">Title to confirm.</span> Running probabilistic network risk analyses on DAFNI.</p><small>Coming in 2027</small></article>
+      <article><span class="tag">Planned output</span><h3>Fellowship report</h3><p><span class="tbc">Title to confirm.</span> Findings, workshop outcomes and recommendations for DAFNI.</p><small>Coming in 2027</small></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap contact">
+    <div>
+      <h2>Discuss the research or join the workshop</h2>
+      <p>Expressions of interest are welcome from infrastructure operators, public bodies, researchers and DAFNI users.</p>
+    </div>
+    <div>
+      <address>
+        <strong>Dr Ji-Eun Byun</strong><br>
+        Imperial College London<br>
+        <a href="mailto:j.byun@imperial.ac.uk">j.byun@imperial.ac.uk</a>
+      </address>
+      <address>
+        <strong>Marta Zarantonello</strong><br>
+        Imperial College London<br>
+        <a href="mailto:m.zarantonello@imperial.ac.uk">m.zarantonello@imperial.ac.uk</a>
+      </address>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p><strong>DAFNI Fellowship 2026–2027</strong></p>
+      <p>Probabilistic risk of infrastructure networks under sequential hazards. Research led by Dr Ji-Eun Byun at Imperial College London.</p>
+    </div>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+  const btn = document.querySelector('.menu'), links = document.getElementById('links');
+  btn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  links.addEventListener('click', e => {
+    if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  });
+</script>
+</body>
+</html>
