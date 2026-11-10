@@ -81,6 +81,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);backdro
 .hero figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.5rem}
 @media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:2.5rem}.facts{grid-template-columns:1fr 1fr}}
 
+.workflow-figure{padding-bottom:2rem}
+.workflow-figure figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
+.workflow-figure img{display:block;width:100%;height:auto}
+.workflow-figure figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.75rem}
+
 /* Partner strip */
 .partners{display:flex;flex-wrap:wrap;gap:2.5rem;align-items:center;justify-content:center;padding:1.5rem 0 2.5rem;border-bottom:1px solid var(--line)}
 .partners img{height:42px;width:auto;filter:grayscale(1);opacity:.75}
@@ -194,7 +199,14 @@ footer small{opacity:.8}
     </dl>
   </div>
   <figure>
-    <img src="assets/images/dafni-workflow.png" alt="DAFNI workflow diagram showing the process from data input through modelling, inference, and ranking to deliver component importance measures" style="width:100%;height:auto;border-radius:6px">
+    <img src="assets/images/ema-network.png" alt="Map of the Eastern Massachusetts highway network used as the demonstrator: 74 nodes sized by population, 129 links, two destination nodes (n22 and n66) marked with stars, and a dashed box showing the area where a hazard can originate" style="width:100%;height:auto;border-radius:6px">
+    <figcaption>The Eastern Massachusetts (EMA) benchmark highway network used in the demonstrator: 74 nodes sized by population and 129 links. A hazard originates somewhere within the dashed support region, and the model tracks whether the population can still reach the two destination nodes, n22 and n66 (stars), as links are damaged.</figcaption>
+  </figure>
+</div>
+
+<div class="wrap workflow-figure">
+  <figure>
+    <img src="assets/images/dafni-workflow.png" alt="DAFNI workflow diagram showing the process from data input through modelling, inference, and ranking to deliver component importance measures">
     <figcaption>The DAFNI workflow: from network data and hazard sequences through tensor-based Bayesian network modelling, sampling and ranking to deliver component importance measures that prioritise where to focus protection or recovery efforts.</figcaption>
   </figure>
 </div>
