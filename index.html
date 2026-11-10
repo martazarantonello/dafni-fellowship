@@ -66,9 +66,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);backdro
 }
 
 /* Hero */
-.hero{padding:4rem 0 3rem;display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:center}
+.hero{padding:4rem 0 2rem}
 .kicker{color:var(--blue-2);font-weight:600;margin-bottom:.75rem}
-.hero .lede{font-size:1.2rem;color:var(--ink-soft);max-width:34em}
+.hero .lede{font-size:1.2rem;color:var(--ink-soft);max-width:45em}
 .btn{display:inline-block;padding:.7rem 1.2rem;border-radius:4px;text-decoration:none;font-weight:600;border:1.5px solid var(--blue)}
 .btn.solid{background:var(--blue);color:#fff}
 .btn.ghost{color:var(--blue)}
@@ -76,12 +76,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);backdro
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
 .facts dt{font-size:.85rem;color:var(--ink-soft)}
 .facts dd{margin:0;font-weight:600}
-.hero figure{margin:0;max-width:400px;justify-self:end}
-@media (max-width:860px){.hero figure{max-width:420px;justify-self:start}}
-.hero figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.5rem}
-@media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:2.5rem}.facts{grid-template-columns:1fr 1fr}}
+.hero .facts{max-width:850px}
+@media (max-width:860px){.hero{padding-top:2.5rem}.facts{grid-template-columns:1fr 1fr}}
 
-.workflow-figure{padding-bottom:2rem}
+.workflow-figure{padding-bottom:2.5rem}
 .workflow-figure figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
 .workflow-figure img{display:block;width:100%;height:auto}
 .workflow-figure figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.75rem}
@@ -126,9 +124,11 @@ section + section{border-top:1px solid var(--line)}
 @media (max-width:800px){.platform{grid-template-columns:1fr}}
 
 /* Workshop */
-.model-figure{margin:2rem 0;max-width:640px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
+.model-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin:2rem 0}
+.model-figure{margin:0;min-width:0;background:#fff;border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
 .model-figure img{display:block;width:100%;height:auto}
 .model-figure figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.75rem}
+@media (max-width:700px){.model-figures{grid-template-columns:1fr}}
 .ws-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0 2rem}
 .ws-meta div{background:var(--paper);border:1px solid var(--line);padding:1rem 1.2rem;border-radius:4px}
 .ws-meta div small{display:block;color:var(--ink-soft);font-size:.85rem}
@@ -183,7 +183,7 @@ footer small{opacity:.8}
 
 <main id="main">
 
-<div class="wrap hero">
+<section class="wrap hero">
   <div>
     <p class="kicker">DAFNI Fellow · Imperial College London</p>
     <h1>Probabilistic Risk of Complex Infrastructure Networks</h1>
@@ -198,16 +198,12 @@ footer small{opacity:.8}
       <div><dt>Focus</dt><dd>Bayesian network models for probabilistic infrastructure risk assessment</dd></div>
     </dl>
   </div>
-  <figure>
-    <img src="assets/images/ema-network.png" alt="Map of the Eastern Massachusetts highway network used as the demonstrator: 74 nodes sized by population, 129 links, two destination nodes (n22 and n66) marked with stars, and a dashed box showing the area where a hazard can originate" style="width:100%;height:auto;border-radius:6px">
-    <figcaption>The Eastern Massachusetts (EMA) benchmark highway network used in the demonstrator: 74 nodes sized by population and 129 links. A hazard originates somewhere within the dashed support region, and the model tracks whether the population can still reach the two destination nodes, n22 and n66 (stars), as links are damaged.</figcaption>
-  </figure>
-</div>
+</section>
 
 <div class="wrap workflow-figure">
   <figure>
     <img src="assets/images/dafni-workflow.png" alt="DAFNI workflow diagram showing the process from data input through modelling, inference, and ranking to deliver component importance measures">
-    <figcaption>The DAFNI workflow: from network data and hazard sequences through tensor-based Bayesian network modelling, sampling and ranking to deliver component importance measures that prioritise where to focus protection or recovery efforts.</figcaption>
+    <figcaption>First look at the DAFNI workflow: network and hazard data feed the tensor-based Bayesian network, then sampling and ranking reveal component importance to help prioritise protection or recovery.</figcaption>
   </figure>
 </div>
 
@@ -290,10 +286,16 @@ footer small{opacity:.8}
       <p class="kicker">Full-day hands-on workshop · <span class="tbc">date to confirm</span> · <span class="tbc">venue to confirm</span></p>
       <p>The workshop brings together infrastructure operators, public bodies, analysts and researchers to get hands-on with Bayesian network models for infrastructure risk. Participants build a working understanding of probability and Bayesian network concepts from first principles, then apply them to a real-world case study: the Eastern Massachusetts highway network under earthquake and windstorm sequences. No prior background in probability or Bayesian networks is required—the day builds gradually from basic ideas through to driving the tool yourself and interpreting what it tells you about infrastructure resilience.</p>
     </div>
-    <figure class="model-figure">
-      <img src="assets/images/bn-model.png" alt="Bayesian network diagram: common-cause risk nodes H1 to HK feed into component nodes X1 to XN; each component is also driven by its own deterioration status D, which generates inspection data I; all component nodes feed into a single system performance node S">
-      <figcaption>The tensor-based Bayesian network structure at the heart of the models: shared, common-cause hazards (H) and each component's deterioration status (D) drive its damage state (X); inspection data (I) can update deterioration status; and component states combine into system-level performance (S).</figcaption>
-    </figure>
+    <div class="model-figures">
+      <figure class="model-figure">
+        <img src="assets/images/bn-model.png" alt="Bayesian network diagram: common-cause risk nodes H1 to HK feed into component nodes X1 to XN; each component is also driven by its own deterioration status D, which generates inspection data I; all component nodes feed into a single system performance node S">
+        <figcaption><strong>The model:</strong> shared hazards (H) and component deterioration (D) drive damage states (X); inspection data (I) can update deterioration status; component states combine into system performance (S).</figcaption>
+      </figure>
+      <figure class="model-figure">
+        <img src="assets/images/ema-network.png" alt="Map of the Eastern Massachusetts highway network: 74 nodes sized by population, 129 links, destination nodes n22 and n66 marked with stars, and a dashed region where a hazard can originate">
+        <figcaption><strong>The case study:</strong> the Eastern Massachusetts (EMA) benchmark network has 74 nodes and 129 links. The model tests how hazards and link damage affect the population's ability to reach destinations n22 and n66.</figcaption>
+      </figure>
+    </div>
     <div class="ws-meta">
       <div><small>Date</small><strong class="tbc">To be confirmed</strong>Full day, 09:00 to 17:00</div>
       <div><small>Location</small><strong class="tbc">To be confirmed</strong>Venue and format to be announced.</div>
