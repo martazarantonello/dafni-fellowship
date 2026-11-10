@@ -182,20 +182,20 @@ footer small{opacity:.8}
   <div>
     <p class="kicker">DAFNI Fellow · Imperial College London</p>
     <h1>Probabilistic Risk of Complex Infrastructure Networks</h1>
-    <p class="lede">Bringing a framework that uses probability-based modelling to assess the system-level risk of interconnected transport networks,
-    working out how likely the system as a whole is to fail, based on the performance of its individual components. The
+    <p class="lede">Bringing a framework that uses probability-based modelling to assess the system-level risk of transport networks,
+    working out how likely the system as a whole is affected by hazards, based on the fragility of its individual components. The
     project aims to show how the DAFNI platform can bring together different sectors to collaborate on managing risk in the
     complex networks that society depends on.</p>
     <p><a class="btn solid" href="#workshop">Explore the workshop</a><a class="btn ghost" href="#updates">Fellowship updates</a></p>
     <dl class="facts">
-      <div><dt>Fellow</dt><dd>Dr Ji-Eun Byun</dd></div>
+      <div><dt>Contributors</dt><dd>Dr Ji-Eun Byun &amp; Marta Zarantonello</dd></div>
       <div><dt>Duration</dt><dd>1 April 2026 – 30 June 2027</dd></div>
-      <div><dt>Demonstrator</dt><dd>Eastern Massachusetts highway network under earthquake and windstorm sequences</dd></div>
+      <div><dt>Focus</dt><dd>Bayesian network models for probabilistic infrastructure risk assessment</dd></div>
     </dl>
   </div>
   <figure>
-    <img src="assets/images/ema-network.png" alt="Map of the Eastern Massachusetts highway network used as the demonstrator: 74 nodes sized by population, 129 links, two destination nodes (n22 and n66) marked with stars, and a dashed box showing the area where a hazard can originate" style="width:100%;height:auto;border-radius:6px">
-    <figcaption>The Eastern Massachusetts (EMA) benchmark highway network used in the demonstrator: 74 nodes sized by population and 129 links. A hazard originates somewhere within the dashed support region, and the model tracks whether the population can still reach the two destination nodes, n22 and n66 (stars), as links are damaged.</figcaption>
+    <img src="assets/images/dafni-workflow.png" alt="DAFNI workflow diagram showing the process from data input through modelling, inference, and ranking to deliver component importance measures" style="width:100%;height:auto;border-radius:6px">
+    <figcaption>The DAFNI workflow: from network data and hazard sequences through tensor-based Bayesian network modelling, sampling and ranking to deliver component importance measures that prioritise where to focus protection or recovery efforts.</figcaption>
   </figure>
 </div>
 
@@ -209,14 +209,14 @@ footer small{opacity:.8}
   <div class="wrap">
     <div class="section-head">
       <h2>What the Fellowship is about</h2>
-      <p>Infrastructure is rarely hit by a single event. An earthquake is followed by aftershocks, and a storm by further gusts, and each one can damage more links. What matters to people is whether they can still reach the places they depend on. The Fellowship builds a probabilistic model of this on a real highway network, runs it for sequences of hazards, and asks the people who plan and manage infrastructure whether the results are useful.</p>
-      <p>Dr Byun's methodology is built around Bayesian networks: graphical probabilistic models whose visual structure makes them well suited to interdisciplinary collaboration on risk assessment and decision-making for complex systems. The Fellowship applies this through the open-source <a href="https://github.com/jieunbyun/tbnpy">tbnpy</a> toolkit, working to lower the usual adoption barrier and scalability limits of system risk tools.</p>
+      <p>Bayesian networks (BNs) are graphical probabilistic models whose visual structure makes them ideal for understanding how variables within a complex system interact with each other. Here, BNs are used for risk assessment to show how common-cause hazards and component deterioration affect single components and the wider system performance they are part of. By analysing the network, they reveal which parts of the network matter most to keeping the system resilient. The Fellowship develops and applies this approach on DAFNI, using the Eastern Massachusetts highway (EMA) network as a demonstrator of how it works under real-world challenges like earthquake and windstorm hazards.</p>
+      <p>This methodology is built around the open-source <a href="https://github.com/jieunbyun/tbnpy">tbnpy</a> toolkit for tensor-based Bayesian networks, working to lower the adoption barrier and scalability limits of system risk tools. The Fellowship applies this through DAFNI, bringing together infrastructure operators, researchers and analysts to collaborate on risk assessment and decision-making for complex networks.</p>
     </div>
     <div class="aims">
-      <article><h3>Build the model</h3><p>Put the full chain on DAFNI: the hazard sequence, the chance that each link is damaged, and whether the population can still reach key destinations afterwards.</p></article>
-      <article><h3>Find the links that matter</h3><p>Force each link to fail in turn and see how the performance of the whole network changes, then rank links by standard importance measures to show where protection or repair would help most.</p></article>
-      <article><h3>Compare scenarios</h3><p>Assess the same network under an earthquake or a windstorm, and under a standard or a stricter performance requirement, to see how its risk profile shifts with the hazard and the bar it has to clear.</p></article>
-      <article><h3>Test it with practitioners</h3><p>Put the models in front of infrastructure operators, public bodies and researchers at the workshop, find out what they would need to trust and use the evidence, and write that up.</p></article>
+      <article><h3>Model the network</h3><p>Build a tensor-based Bayesian network on DAFNI: linking common-cause hazards, component deterioration, inspection data and component states to system-level performance, identifying where the network can still deliver and where it fails.</p></article>
+      <article><h3>Find the critical links</h3><p>Force each link to fail in turn and measure how the entire network performance changes, then rank links by standard importance measures to show where protection, repair or recovery effort would help most.</p></article>
+      <article><h3>Apply to real networks</h3><p>Demonstrate the approach on the Eastern Massachusetts highway network under earthquake and windstorm sequences, showing how the methodology scales to a real-world infrastructure challenge with dozens of nodes and links.</p></article>
+      <article><h3>Test with stakeholders</h3><p>Bring the model to infrastructure operators, planners and analysts through the workshop, to get feedback on whether the results are useful and how to make the tool work for their own networks.</p></article>
     </div>
   </div>
 </section>
@@ -240,12 +240,12 @@ footer small{opacity:.8}
   <div class="wrap">
     <div class="section-head">
       <h2>The models on DAFNI</h2>
-      <p>Everything needed to rerun the analysis is packaged as models on DAFNI, so that others can check it, change the choices and use it for their own questions.</p>
+      <p>At the core is a tensor-based Bayesian network that links hazards, component deterioration and system performance. Everything needed to build, run and interpret this model is packaged on DAFNI, so that others can check it, adapt it for their own networks and questions, and use it for risk assessment and decision-making.</p>
     </div>
     <div class="platform">
       <div>
         <ul>
-          <li><strong>The networks:</strong> a small 11-link illustrative network for quick exploration, and the real Eastern Massachusetts highway network (74 nodes, 129 links).</li>
+          <li><strong>The networks:</strong> the demonstrator is the Eastern Massachusetts highway network (74 nodes, 129 links), a real-world challenge showing how the method scales to practical infrastructure. A smaller 11-link illustrative network is also available for quick exploration and learning.</li>
           <li><strong>The hazards:</strong> an earthquake mainshock followed by up to ten aftershocks, or a windstorm with an initial peak followed by up to ten further gust peaks. In both, damage builds up over the sequence. The windstorm model is still being refined and its assumptions are documented.</li>
           <li><strong>The performance requirement:</strong> how much of the population must still be able to reach key destinations within a given travel time, with a standard and a stricter setting.</li>
           <li><strong>The models:</strong>
@@ -276,11 +276,11 @@ footer small{opacity:.8}
     <div class="section-head">
       <h2>Probabilistic Risk Modelling for Infrastructure Resilience</h2>
       <p class="kicker">Full-day hands-on workshop · <span class="tbc">date to confirm</span> · <span class="tbc">venue to confirm</span></p>
-      <p>The workshop brings together infrastructure operators, public bodies, analysts and researchers to get hands-on with the DAFNI models. No prior background in probability or Bayesian networks is required: the day builds up gradually, from the basic ideas of probability and uncertainty, through the Bayesian network structure behind the models, to driving the tool yourself and interpreting what it tells you about a real network.</p>
+      <p>The workshop brings together infrastructure operators, public bodies, analysts and researchers to get hands-on with Bayesian network models for infrastructure risk. Participants build a working understanding of probability and Bayesian network concepts from first principles, then apply them to a real-world case study: the Eastern Massachusetts highway network under earthquake and windstorm sequences. No prior background in probability or Bayesian networks is required—the day builds gradually from basic ideas through to driving the tool yourself and interpreting what it tells you about infrastructure resilience.</p>
     </div>
     <figure class="model-figure">
       <img src="assets/images/bn-model.png" alt="Bayesian network diagram: common-cause risk nodes H1 to HK feed into component nodes X1 to XN; each component is also driven by its own deterioration status D, which generates inspection data I; all component nodes feed into a single system performance node S">
-      <figcaption>The structure the workshop builds up to: a tensor-based Bayesian network in which shared, common-cause hazards (H) and each component's deterioration status (D) drive its damage state (X), inspection data (I) can update that deterioration status, and the component states combine into a single system-level performance outcome (S).</figcaption>
+      <figcaption>The tensor-based Bayesian network structure at the heart of the models: shared, common-cause hazards (H) and each component's deterioration status (D) drive its damage state (X); inspection data (I) can update deterioration status; and component states combine into system-level performance (S).</figcaption>
     </figure>
     <div class="ws-meta">
       <div><small>Date</small><strong class="tbc">To be confirmed</strong>Full day, 09:00 to 17:00</div>
@@ -292,27 +292,28 @@ footer small{opacity:.8}
     <div style="margin-top:2.5rem;max-width:44em">
       <h3>Workshop aims</h3>
       <ul>
-        <li>Build a working understanding of the probability and Bayesian network ideas behind the models, from first principles through to the full network used on DAFNI.</li>
-        <li>Show how the DAFNI tool works end to end and what it can do: running a hazard sequence, and automatically working out which links matter most to network performance.</li>
-        <li>Give participants the confidence to explore the tool themselves, and find out what would make it genuinely useful for their own work.</li>
+        <li>Build a working understanding of probability and Bayesian network concepts from first principles, and see how they apply to infrastructure risk.</li>
+        <li>Explore the tensor-based Bayesian network approach: from common-cause hazards and component deterioration through to system-level performance.</li>
+        <li>Apply the framework to a real case study—the Eastern Massachusetts highway network under earthquake and windstorm sequences—to see which links matter most to network resilience.</li>
+        <li>Gain the confidence to explore the tool yourself and identify how it could be useful for your own infrastructure challenges.</li>
       </ul>
-      <p>The workshop's output is participants' understanding of the tool's capabilities and their feedback on it, which will shape the closing report.</p>
+      <p>The workshop's output is participants' understanding of the approach and their feedback on it, which will shape the closing report.</p>
     </div>
     <div id="agenda" class="programme">
       <h3 class="programme-title">Proposed programme (full day)</h3>
       <ol class="agenda">
-        <li><time>09:00–09:15</time><div><strong>Welcome and an icebreaker</strong>A quick poll, asking participants which link they think matters most, to capture the room's starting intuition and revisit it at the end of the day.</div></li>
+        <li><time>09:00–09:15</time><div><strong>Welcome and an icebreaker</strong>Exploring infrastructure resilience: which parts of a network matter most, and why?</div></li>
         <li><time>09:15–10:00</time><div><strong>Probability, from scratch</strong>A gentle, example-led primer on randomness, independence and conditional probability, the building blocks for everything that follows.</div></li>
-        <li><time>10:00–10:45</time><div><strong>Thinking in Bayesian networks</strong>How a diagram of circles and arrows captures cause and effect, built up live from a small worked example to the network structure behind the DAFNI models.</div></li>
+        <li><time>10:00–10:45</time><div><strong>Thinking in Bayesian networks</strong>How a diagram of circles and arrows captures cause and effect, built up live from a small worked example to the full network structure for infrastructure risk.</div></li>
         <li><time>10:45–11:00</time><div><strong>Morning break</strong></div></li>
-        <li><time>11:00–11:30</time><div><strong>Perspectives on infrastructure risk</strong>Short talks on how hazards such as earthquakes and storms are modelled, how infrastructure owners assess network risk today, and how DAFNI helps researchers and industry share models.</div></li>
-        <li><time>11:30–12:15</time><div><strong>Meet the model</strong>Connecting the Bayesian network to a real hazard sequence on the Eastern Massachusetts network, from common-cause hazards and ageing components to whether people can still reach key destinations.</div></li>
+        <li><time>11:00–11:30</time><div><strong>Perspectives on infrastructure risk</strong>How hazards such as earthquakes and storms are modelled, how infrastructure owners assess network risk today, and how Bayesian networks bring clarity to interdisciplinary collaboration.</div></li>
+        <li><time>11:30–12:15</time><div><strong>The case study: Eastern Massachusetts highway network</strong>Applying the Bayesian network to a real demonstrator—74 nodes and 129 links—under sequences of earthquakes and windstorms, from common-cause hazards and ageing components to whether people can still reach key destinations.</div></li>
         <li><time>12:15–13:15</time><div><strong>Lunch break</strong></div></li>
-        <li><time>13:15–14:00</time><div><strong>Inside the DAFNI pipeline</strong>How the modelling, sampling and ranking models build on the same underlying network structure, and how the tool automatically compares outcomes with each link broken or undamaged in turn to work out a component-importance ranking under the chosen hazard.</div></li>
+        <li><time>13:15–14:00</time><div><strong>Inside the DAFNI pipeline</strong>How the modelling, sampling and ranking models all use the same underlying Bayesian network structure, and how the tool automatically ranks components by importance under the chosen hazard.</div></li>
         <li><time>14:00–14:15</time><div><strong>Afternoon break</strong></div></li>
-        <li><time>14:15–15:45</time><div><strong>Hands-on: from guided to self-directed</strong>Follow a guided walkthrough of the DAFNI notebook, then explore on your own: choose a hazard, a network and a performance requirement, run the model, and read off which links it ranks as most critical.</div></li>
-        <li><time>15:45–16:15</time><div><strong>Show and tell</strong>Groups compare the tool's importance ranking against the opening poll, and discuss what it does, and what it does not yet, capture.</div></li>
-        <li><time>16:15–17:00</time><div><strong>Wrap up, Q&amp;A and next steps</strong>What the tool can and can't yet do, how to get access, and how your feedback shapes the Fellowship report.</div></li>
+        <li><time>14:15–15:45</time><div><strong>Hands-on: from guided to self-directed</strong>Follow a guided walkthrough of the DAFNI notebook using the Eastern Massachusetts case study, then explore on your own: choose scenarios, run the model, and see which links rank as most critical to network resilience.</div></li>
+        <li><time>15:45–16:15</time><div><strong>Show and tell</strong>Groups share their findings from the case study and discuss what insights the network analysis reveals about infrastructure resilience.</div></li>
+        <li><time>16:15–17:00</time><div><strong>Wrap up, Q&amp;A and next steps</strong>How to apply Bayesian networks to your own infrastructure challenges, how to get access to the tool, and how your feedback shapes the Fellowship report.</div></li>
       </ol>
     </div>
   </div>
@@ -359,7 +360,7 @@ footer small{opacity:.8}
   <div class="wrap">
     <div>
       <p><strong>DAFNI Fellowship 2026–2027</strong></p>
-      <p>Probabilistic risk of infrastructure networks under sequential hazards. Research led by Dr Ji-Eun Byun at Imperial College London.</p>
+      <p>Probabilistic risk of infrastructure networks under sequential hazards. Research by Dr Ji-Eun Byun and Marta Zarantonello at Imperial College London.</p>
     </div>
     <a href="#top">Back to top</a>
   </div>
