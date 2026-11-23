@@ -131,6 +131,15 @@ section + section{border-top:1px solid var(--line)}
 .model-figure img{display:block;width:100%;height:auto}
 .model-figure figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.75rem}
 @media (max-width:700px){.model-figures{grid-template-columns:1fr}}
+
+/* Image lightbox */
+img.zoomable{cursor:zoom-in}
+.lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;overflow:auto}
+.lightbox::backdrop{background:rgba(0,0,0,.85)}
+.lightbox-inner{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1rem 1.5rem;cursor:zoom-out}
+.lightbox img{max-width:min(96vw,1600px);max-height:80vh;width:auto;height:auto;background:#fff;border-radius:4px}
+.lightbox p{color:#fff;max-width:60em;text-align:center;font-size:.9rem;margin:.75rem 0 0}
+.lightbox button{position:fixed;top:.75rem;right:1rem;font-size:2rem;line-height:1;color:#fff;background:none;border:0;cursor:pointer}
 .ws-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0 2rem}
 .ws-meta div{background:var(--paper);border:1px solid var(--line);padding:1rem 1.2rem;border-radius:4px}
 .ws-meta div small{display:block;color:var(--ink-soft);font-size:.85rem}
@@ -390,6 +399,29 @@ footer small{opacity:.8}
   links.addEventListener('click', e => {
     if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
   });
+
+  // Click-to-enlarge for content images (partner logos are links, so they are excluded)
+  const box = document.createElement('dialog');
+  box.className = 'lightbox';
+  box.setAttribute('aria-label', 'Enlarged image');
+  box.innerHTML = '<div class="lightbox-inner"><button type="button" aria-label="Close">&times;</button><img alt=""><p></p></div>';
+  document.body.appendChild(box);
+  const boxImg = box.querySelector('img'), boxCap = box.querySelector('p');
+  document.querySelectorAll('main img:not(a img)').forEach(img => {
+    img.classList.add('zoomable');
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    const open = () => {
+      boxImg.src = img.currentSrc || img.src;
+      boxImg.alt = img.alt;
+      const cap = img.closest('figure')?.querySelector('figcaption');
+      boxCap.textContent = cap ? cap.textContent : '';
+      box.showModal();
+    };
+    img.addEventListener('click', open);
+    img.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+  box.addEventListener('click', () => box.close());
 </script>
 </body>
 </html>
